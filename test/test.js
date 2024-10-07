@@ -3,6 +3,12 @@
  * to run in the browser and in Node.js. 
  */
 let assert, expect;
+if (typeof window === 'object') {
+    // Ensure chai is available in the browser environment
+    if (typeof chai === 'undefined') {
+        throw new Error('Chai is not loaded. Please ensure chai.js is included in your HTML file.');
+    }
+}
 let testItems = {};
 if (typeof window === 'object') {
     // Run tests in browser
